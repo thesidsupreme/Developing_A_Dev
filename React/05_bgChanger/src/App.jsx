@@ -1,22 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
 
-function App() {
-  <>
+const App = () => {
+  const [color, setColor] = useState("lightblue");
+  return (
+    <div
+      className="w-full h-screen duration-200"
+      style={{ backgroundColor: color }}
+    >
+      <div className="container fixed right-38 bottom-12 text-black justify-center flex bg-amber-50 w-[80vw] items-center m-auto h-10 rounded-md">
+        <ul className="flex gap-2">
+          <li>blue</li>
+          <li>blue</li>
+          <li>blue</li>
+          <li>blue</li>
+          <li>blue</li>
+          <li>blue</li>
+        </ul>
+        
+      </div>
+    </div>
+  );
+};
 
-    <ul className='list'>
-      <li>Black</li>
-      <li>Red</li>
-      <li>Green</li>
-      <li>Blue</li>
-      <li>Pink</li>
-      <li>Brown</li>
-      <li>Purple</li>
-      <li>Sky</li>
-    </ul>
-  </>
-}
-
-export default App
+export default App;
