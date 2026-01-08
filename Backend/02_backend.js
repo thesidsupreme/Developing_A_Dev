@@ -6,18 +6,21 @@ const server = http.createServer((request, response) => {
         response.setHeader('Content-Type', 'text/html');
         response.write('<html>');
         response.write('<head><title>This is the main page</title><head>');
-        response.write('<body><h1>This is the main page Mr. sid supreme, </h1></body>');
+        response.write('<body><h1>Enter Your Details</h1>');
+        response.write('<form action="/submit" method="POST">');
+        response.write('<input type="text" name="username" placeholder="Enter your name"><br>');
+        response.write('<label for="gender">Choose your gender:</label><br>');
+        response.write('<label for="male">Male</label>');
+        response.write('<input type="radio" id="male" name="gender" value="male"><br>');
+        response.write('<label for="female">Female</label>');
+        response.write('<input type="radio" id="female" name="gender" value="female"><br>');
+        response.write('<button type="submit">Submit</button>');
+        response.write('</form>'); 
+        response.write('</body>')
         response.write('</html>');
         return response.end();
 
-    } else if (request.url === "/products") {
-        response.setHeader('Content-Type', 'text/html');
-        response.write('<html>');
-        response.write('<head><title>My First Page</title><head>');
-        response.write('<body><h1>This is the PRODUCT PAGE MR.SID </h1></body>');
-        response.write('</html>');
-        return response.end();
-    }
+    }else if(request.url === "/submit" && request.method === "POST") {
     response.setHeader('Content-Type', 'text/html');
     response.write('<html>');
     response.write('<head><title></title><head>');
