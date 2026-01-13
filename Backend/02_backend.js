@@ -1,6 +1,9 @@
 const http = require("http");
+const fs = require("fs");
 
 const server = http.createServer((request, response) => {
+
+
     console.log(request.url, request.method, request.headers);
     if(request.url === "/") {
         response.setHeader('Content-Type', 'text/html');
@@ -21,6 +24,10 @@ const server = http.createServer((request, response) => {
         return response.end();
 
     }else if(request.url === "/submit" && request.method === "POST") {
+        fs.writeFileSync('user.txt','Siddharth Naudiyal')
+        response.statusCode = 302;
+        response.setHeader('Location','/');
+    }
     response.setHeader('Content-Type', 'text/html');
     response.write('<html>');
     response.write('<head><title></title><head>');
@@ -28,6 +35,7 @@ const server = http.createServer((request, response) => {
     response.write('</html>');
     response.end();
 })
+
 
 
 const PORT = 3000;
