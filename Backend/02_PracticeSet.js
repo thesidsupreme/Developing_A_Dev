@@ -5,13 +5,13 @@ const server = http.createServer((request, response) => {
     console.log(request.url, request.method);
     if(request.url==='/home'){
         response.write('<h1>Welcome to home</h1>')
-    }else if(request.url==='men'){
+    }else if(request.url==='/men'){
         response.write('<h1>Welcome to men</h1>')
-    }  else if(request.url==='women'){
+    }  else if(request.url==='/women'){
         response.write('<h1>Welcome to women</h1>')
-    }  else if(request.url==='kids'){
+    }  else if(request.url==='/kids'){
         response.write('<h1>Welcome to kids</h1>')
-    }  else if(request.url==='cart'){
+    }  else if(request.url==='/cart'){
         response.write('<h1>Welcome to cart</h1>')
     }   else{
          response.write(`
