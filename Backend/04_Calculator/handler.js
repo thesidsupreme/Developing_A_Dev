@@ -1,4 +1,4 @@
-const {sumRequestHandler} = require('./sum')
+const { sumRequestHandler } = require('./sum')
 const requestHandler = (req, res) => {
     console.log(req.url, req.method)
     if (req.url === '/') {
@@ -39,7 +39,13 @@ const requestHandler = (req, res) => {
             `
         );
         return res.end();
+    } 
+    else if (req.url.toLowerCase() === "/calculate-result" && req.method === 'POST') {
+        return sumRequestHandler(req, res);
+        
     }
+
+
     res.setHeader('Content-Type', 'text/html')
     res.write(
         `
