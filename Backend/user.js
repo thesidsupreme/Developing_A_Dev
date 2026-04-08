@@ -1,4 +1,5 @@
 
+const { error } = require("console");
 const fs = require("fs");
 
 const userRequestHandler = (request, response) => {
@@ -31,20 +32,24 @@ const userRequestHandler = (request, response) => {
 
         })
         request.on('end', () => {
-          const fullbody = Buffer.concat(body).toString();
-          console.log(fullbody);
-          const params = new URLSearchParams(fullbody);
-        //   const bodyObject = {};
-        //   for(const [key, val] of params.entries()){
-        //     bodyObject[key] = val; 
-        //   }
-        const bodyObject = Object.fromEntries(params)
-        console.log(bodyObject);
-        fs.writeFileSync('user.txt', JSON.stringify(bodyObject))
-        }
-        )
-        response.statusCode = 302;
-        response.setHeader('Location', '/');
+            const fullbody = Buffer.concat(body).toString();
+            console.log(fullbody);
+            const params = new URLSearchParams(fullbody);
+            //   const bodyObject = {};
+            //   for(const [key, val] of params.entries()){
+            //     bodyObject[key] = val; 
+            //   }
+            const bodyObject = Object.fromEntries(params)
+            console.log(bodyObject);
+            fs.writeFile('user.txt', JSON.stringify(bodyObject), error => {
+                console.log("file written succesfully.....")
+            })
+
+            response.statusCode = 302;
+            response.setHeader('Location', '/');
+            response.end();
+        })
+        return;
     }
     response.setHeader('Content-Type', 'text/html');
     response.write('<html>');
