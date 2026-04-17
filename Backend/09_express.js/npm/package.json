@@ -1,0 +1,18 @@
+{
+  "name": "npm-test",
+  "version": "1.0.0",
+  "description": "this is created by Siddharth to test out the npm package",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "The sid supreme",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
